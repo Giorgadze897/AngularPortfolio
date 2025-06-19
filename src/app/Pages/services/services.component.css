@@ -1,0 +1,95 @@
+.services-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.section-header .sub-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #aaa;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.section-header .main-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #43b7ff;
+  margin-bottom: 40px;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 300px;
+  transition: max-height 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f1e6ff;
+  overflow: hidden;
+  max-height: 450px;
+  position: relative;
+}
+
+.service-card.expanded {
+  max-height: 600px;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(122, 0, 255, 0.2);
+}
+
+.service-card img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #3b2d73;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.more-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.learn-more {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6200ea;
+  border-bottom: 2px solid #ff4dd2;
+  padding-bottom: 2px;
+  display: inline-block;
+  margin-top: 12px;
+}

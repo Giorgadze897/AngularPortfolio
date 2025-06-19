@@ -1,0 +1,22 @@
+<section class="services-section">
+  <div class="section-header">
+    <p class="sub-title">Our Services</p>
+    <h2 class="main-title">What Service We Offer For You</h2>
+  </div>
+  <div class="service-cards">
+    <div class="service-card" *ngFor="let service of services" [class.expanded]="service.expanded">
+      <img [src]="service.icon" alt="{{service.title}}">
+      <h3>{{service.title}}</h3>
+      <p>{{service.description}}</p>
+
+      <!-- Extra description shown when expanded -->
+      <p *ngIf="service.expanded" class="more-text">
+        {{service.more}}
+      </p>
+
+      <a href="#" class="learn-more" (click)="toggleExpand(service); $event.preventDefault()">
+        {{ service.expanded ? 'Show Less' : 'Learn More' }}
+      </a>
+    </div>
+  </div>
+</section>

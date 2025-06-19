@@ -1,0 +1,19 @@
+<nav class="navbar" [class.dark]="darkMode">
+  <div class="logo"> <a routerLink="/">G.G</a></div>
+
+  <div class="menu-icon" (click)="toggleMenu()">
+    <i [ngClass]="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+  </div>
+
+  <ul class="nav-links" [ngClass]="{ 'active': menuOpen }">
+    <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+    <li><a routerLink="/AboutMe" (click)="closeMenu()">About Me</a></li>
+    <li><a routerLink="/Portfolio" (click)="closeMenu()">Portfolio</a></li>
+    <li><a routerLink="/Services" (click)="closeMenu()">Services</a></li>
+    <div class="dark-mode-toggle" (click)="toggleDarkMode()" [title]="darkMode ? 'Light Mode' : 'Dark Mode'">
+    <i *ngIf="!darkMode" class="fas fa-moon"></i>
+    <i *ngIf="darkMode" class="fas fa-sun"></i>
+    </div>
+  </ul>
+
+</nav>

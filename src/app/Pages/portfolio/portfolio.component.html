@@ -1,0 +1,18 @@
+<section class="portfolio">
+  <h2 class="section-title">My Portfolio</h2>
+  <p class="section-subtitle">Here are some of the projects I've worked on recently.</p>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-card" *ngFor="let project of projects">
+      <img [src]="project.image" alt="project image">
+      <div class="card-content">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="card-buttons">
+          <a [href]="project.demoLink" target="_blank" class="btn">Live Demo</a>
+          <a [href]="project.codeLink" target="_blank" class="btn-outline">Source Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+<section class="hero">
+  <div class="hero-left">
+    <p class="greeting">HEY THERE !</p>
+    <h1>I AM Giorgi</h1>
+    <h2>CREATIVE ART DIRECTOR & DESIGNER</h2>
+    <div class="social-icons">
+      <a href="https://x.com/Giorgadze_897"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/020/911/740/small_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" alt="Profile Image" />
+  </div>
+</section>
+
+<section class="stats">
+  <div>
+    <h3>10+</h3>
+    <p>Happy Customers</p>
+  </div>
+  <div>
+    <h3>12+</h3>
+    <p>Tickets Service</p>
+  </div>
+  <div>
+    <h3>8/10</h3>
+    <p>Average Rating</p>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="section-header">
+    <p class="sub-title">Our Services</p>
+    <h2 class="main-title">What Service We Offer For You</h2>
+  </div>
+  <div class="service-cards">
+    <div class="service-card" *ngFor="let service of services" [class.expanded]="service.expanded">
+      <img [src]="service.icon" alt="{{service.title}}">
+      <h3>{{service.title}}</h3>
+      <p>{{service.description}}</p>
+
+      <p *ngIf="service.expanded" class="more-text">
+        {{service.more}}
+      </p>
+
+      <a href="#" class="learn-more" (click)="toggleExpand(service); $event.preventDefault()">
+        {{ service.expanded ? 'Show Less' : 'Learn More' }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm Giorgi Giorgadze, a 16-year-old student passionate about technology and programming.
+      For the past two years, I’ve been learning and building websites, constantly expanding my knowledge
+      and skills in the world of development.
+    </p>
+
+    <p>
+      Over this time, I have worked on many practical assignments and gained hands-on experience with
+      the following technologies:
+    </p>
+
+    <ul>
+      <li><strong>HTML, CSS</strong> – Solid foundation in creating structured and visually engaging websites.</li>
+      <li><strong>TypeScript & Angular</strong> – Building dynamic and scalable frontend apps.</li>
+      <li><strong>C# and ASP.NET API</strong> – Backend development and RESTful APIs.</li>
+      <li><strong>Game Development (3D)</strong> – Learning and building small 3D projects to boost creativity.</li>
+    </ul>
+
+    <p>
+      I’ve completed a number of real-world projects which have strengthened both my technical and creative
+      thinking skills. I see technology not just as a profession, but as a passion that motivates me daily.
+    </p>
+
+    <p>
+      In the future, I aim to grow as a full-stack developer and game designer, creating solutions that make a meaningful impact.
+    </p>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <h2>What People Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>"Giorgi is a talented developer. He delivered on time and exceeded expectations!"</p>
+      <h4>– John D., Client</h4>
+    </div>
+    <div class="testimonial">
+      <p>"His creativity and attention to detail truly shine through every project."</p>
+      <h4>– Mariam T., Designer</h4>
+    </div>
+  </div>
+</section>

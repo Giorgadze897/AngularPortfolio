@@ -1,0 +1,146 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar.dark {
+  background-color: #2b2b40;
+  color: #ccc;
+  box-shadow: 0 2px 15px rgba(122, 0, 255, 0.4);
+}
+.logo a{
+  text-decoration: none;
+  color: #cc00ff;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #7a00ff;
+  transition: color 0.3s ease;
+}
+
+.navbar.dark .logo {
+  color: #d9b3ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #2a2a2a;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar.dark .nav-links li a {
+  color: #ccc;
+}
+
+.nav-links li a:hover {
+  color: #7a00ff;
+}
+
+.navbar.dark .nav-links li a:hover {
+  color: #d9b3ff;
+}
+
+.hire-btn {
+  background: linear-gradient(to right, #7e00ff, #ff4dd2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hire-btn:hover {
+  background: linear-gradient(to right, #6100c1, #e60073);
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar.dark .menu-icon {
+  color: #ccc;
+}
+
+.dark-mode-toggle {
+  font-size: 1.6rem;
+  color: #7a00ff;
+  cursor: pointer;
+  margin-left: 20px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.navbar.dark .dark-mode-toggle {
+  color: #ffccf9;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-200%);
+    opacity: 0;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar.dark .nav-links {
+    background: #2b2b40;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .desktop-hire {
+    display: none;
+  }
+
+  .mobile-hire-btn {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-hire-btn {
+    display: none;
+  }
+}
