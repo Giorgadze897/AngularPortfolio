@@ -1,92 +1,284 @@
-.portfolio {
-  padding: 4rem 8%;
+/* =============== */
+/* დიზაინის საფუძველი */
+/* =============== */
+
+/* DARK mode (ნაგულისხმევი) */
+:root{
+  /* ფერები */
+  --bg: #0e0e12;
+  --card: #10121a;
+  --text: #e9e9ef;
+  --muted: #a4a7b5;
+  --brand-1: #7e00ff;
+  --brand-2: #ff4dd2;
+  --ring: #b88cff;
+
+  /* ზომები */
+  --radius: 16px;
+  --shadow-1: 0 6px 20px rgba(0,0,0,.18);
+  --shadow-2: 0 14px 40px rgba(0,0,0,.28);
+
+  /* ტიპოგრაფია */
+  --fz-h2: clamp(1.6rem, 1.2rem + 2vw, 2.8rem);
+  --fz-sub: clamp(.95rem, .8rem + .3vw, 1.15rem);
+  --fz-card-title: clamp(1.05rem, .9rem + .6vw, 1.35rem);
+  --fz-card-text: clamp(.92rem, .86rem + .3vw, 1rem);
+}
+
+/* LIGHT mode */
+:root[data-theme="light"] {
+  --bg: #f8f8ff;
+  --card: #ffffff;
+  --text: #1c1d22;
+  --muted: #5d6270;
+  --shadow-1: 0 6px 22px rgba(22,22,40,.10);
+  --shadow-2: 0 16px 48px rgba(22,22,40,.12);
+}
+
+/* ავტომატური სისტემა */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #f8f8ff;
+    --card: #ffffff;
+    --text: #1c1d22;
+    --muted: #5d6270;
+    --shadow-1: 0 6px 22px rgba(22,22,40,.10);
+    --shadow-2: 0 16px 48px rgba(22,22,40,.12);
+  }
+}
+
+/* გლობალური ფონი + დეკორატიული გრადიენტი */
+body{
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(126,0,255,.18), transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(255,77,210,.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
+
+/* ===================== */
+/* სექცია: Portfolio     */
+/* ===================== */
+.portfolio{
+  padding: clamp(2.5rem, 2rem + 4vw, 5rem) clamp(1rem, 3vw, 8%);
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #7a00ff;
-  margin-bottom: 0.5rem;
+.section-title{
+  font-size: 22px;
+  line-height: 1.1;
+  margin: 0 0 .35rem 0;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #5ac2ff;
+  letter-spacing: .3px;
 }
 
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 2.5rem;
+.section-subtitle{
+  font-size: var(--fz-sub);
+  color: var(--muted);
+  margin: 0 0 2.2rem 0;
 }
 
-.portfolio-grid {
+/* ======== Grid ======== */
+.portfolio-grid{
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 1.2vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: stretch;
 }
 
-.portfolio-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-10px);
-}
-
-.portfolio-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 1.5rem;
-}
-
-.card-content h3 {
-  margin-bottom: 0.5rem;
-  color: #2a2a2a;
-}
-
-.card-content p {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.card-buttons {
+/* ======== ბარათი ======== */
+.portfolio-card{
+  position: relative;
+  background: rgba(209, 246, 255, 0.301);
+  border-radius: 15px;
+  overflow: clip;
+  box-shadow: var(--shadow-1);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease;
+  will-change: transform;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  isolation: isolate;
+  border: 2px solid #5ac2ff;
+}
+
+.portfolio-card::after{
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(600px 300px at 10% -20%, rgba(126,0,255,.12), transparent 60%);
+  opacity: .35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portfolio-card:hover{
+  transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 7px 15px 0 rgba(0, 238, 255, 0.526);
+}
+
+/* ======== სურათი ======== */
+.portfolio-card img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+  transform: scale(1.01);
+  transition: transform .5s ease, filter .5s ease;
+}
+
+.portfolio-card:hover img{
+  transform: scale(1.05);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+/* ======== შინაარსი ======== */
+.card-content{
+  padding: clamp(1rem, .8rem + .8vw, 1.5rem);
+  display: grid;
+  gap: .75rem;
+  text-align: left;
+  z-index: 1;
+}
+
+.card-content h3{
+  font-size: var(--fz-card-title);
+  margin: 0;
+  color: var(--text);
+}
+
+.card-content p{
+  font-size: var(--fz-card-text);
+  color: var(--muted);
+  margin: 0 0 .25rem 0;
+}
+
+/* ======== ღილაკები ======== */
+.card-buttons{
+  display: flex;
+  gap: .75rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.btn {
-  background: linear-gradient(to right, #7e00ff, #ff4dd2);
-  color: white;
-  padding: 0.5rem 1.2rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
+.btn,
+.btn-outline{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .6rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.3s ease;
+  line-height: 1;
+  transition: transform .2s ease, box-shadow .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  cursor: pointer;
+  outline: none;
 }
 
-.btn:hover {
-  background: linear-gradient(to right, #6100c1, #e60073);
+.btn{
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color: #5ac2ff;
+  box-shadow: 0 8px 20px rgba(126,0,255,.25);
 }
 
-.btn-outline {
-  border: 2px solid #7e00ff;
-  color: #7e00ff;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(126,0,255,.32);
 }
 
-.btn-outline:hover {
-  background: #7e00ff;
-  color: white;
+.btn:active{
+  transform: translateY(0);
+}
+
+.btn-outline{
+  background: transparent;
+  border: 2px solid color-mix(in oklab, var(--brand-1) 70%, white);
+  color: color-mix(in oklab, var(--brand-1) 75%, var(--text));
+}
+
+.btn-outline:hover{
+  background: color-mix(in oklab, var(--brand-1) 12%, transparent);
+  color: #fff;
+  border-color: color-mix(in oklab, var(--brand-1) 85%, white);
+}
+
+.btn:focus-visible,
+.btn-outline:focus-visible,
+.portfolio-card:focus-within{
+  box-shadow: 0 0 0 3px rgba(184,140,255,.55);
+}
+
+/* ===================== */
+/* შესვლის ანიმაცია + სტაგერი */
+/* ===================== */
+@keyframes cardIn{
+  from{
+    opacity: 0;
+    transform: translateY(14px) scale(.98);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.portfolio-card{
+  opacity: 0;
+  animation: cardIn .6s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.portfolio-card:nth-child(1){ animation-delay: .02s; }
+.portfolio-card:nth-child(2){ animation-delay: .08s; }
+.portfolio-card:nth-child(3){ animation-delay: .14s; }
+.portfolio-card:nth-child(4){ animation-delay: .20s; }
+.portfolio-card:nth-child(5){ animation-delay: .26s; }
+.portfolio-card:nth-child(6){ animation-delay: .32s; }
+
+/* ===================== */
+/* მცირე ეკრანები */
+/* ===================== */
+@media (max-width: 520px){
+  .portfolio{
+    text-align: left;
+  }
+  .card-buttons{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn, .btn-outline{
+    width: 100%;
+  }
+}
+
+/* ===================== */
+/* დიდი ეკრანები */
+/* ===================== */
+@media (min-width: 1100px){
+  .portfolio-grid{
+    gap: 1.6rem;
+  }
+  .portfolio-card:hover{
+    transform: translateY(-10px) scale(1.015);
+  }
+}
+
+/* ===================== */
+/* Reduced motion პატივისცემა */
+/* ===================== */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+  }
+  .portfolio-card,
+  .portfolio-card:hover{
+    transform: none !important;
+  }
 }

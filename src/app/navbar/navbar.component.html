@@ -1,19 +1,26 @@
-<nav class="navbar" [class.dark]="darkMode">
-  <div class="logo"> <a routerLink="/">G.G</a></div>
-
-  <div class="menu-icon" (click)="toggleMenu()">
-    <i [ngClass]="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+<nav class="navbar" [class.dark]="darkMode" aria-label="Main navigation">
+  <div class="logo">
+    <a routerLink="/" aria-label="Go to Home">G.G</a>
   </div>
 
-  <ul class="nav-links" [ngClass]="{ 'active': menuOpen }">
-    <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
-    <li><a routerLink="/AboutMe" (click)="closeMenu()">About Me</a></li>
-    <li><a routerLink="/Portfolio" (click)="closeMenu()">Portfolio</a></li>
-    <li><a routerLink="/Services" (click)="closeMenu()">Services</a></li>
-    <div class="dark-mode-toggle" (click)="toggleDarkMode()" [title]="darkMode ? 'Light Mode' : 'Dark Mode'">
-    <i *ngIf="!darkMode" class="fas fa-moon"></i>
-    <i *ngIf="darkMode" class="fas fa-sun"></i>
-    </div>
-  </ul>
+  <button class="menu-icon" (click)="toggleMenu()" aria-label="Toggle menu" type="button">
+    <i [ngClass]="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+  </button>
 
+  <ul class="nav-links" [ngClass]="{ 'active': menuOpen }" role="menu">
+    <li role="none"><a role="menuitem" routerLink="/" (click)="closeMenu()">Home</a></li>
+    <li role="none"><a role="menuitem" routerLink="/AboutMe" (click)="closeMenu()">About Me</a></li>
+    <li role="none"><a role="menuitem" routerLink="/Portfolio" (click)="closeMenu()">Portfolio</a></li>
+    <li role="none"><a role="menuitem" routerLink="/Services" (click)="closeMenu()">Services</a></li>
+
+    <button class="dark-mode-toggle"
+            type="button"
+            (click)="toggleDarkMode()"
+            [title]="darkMode ? 'Light Mode' : 'Dark Mode'"
+            aria-label="Toggle color theme">
+      <i *ngIf="!darkMode" class="fas fa-moon" aria-hidden="true"></i>
+      <i *ngIf="darkMode" class="fas fa-sun" aria-hidden="true"></i>
+      <span class="visually-hidden">{{ darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}</span>
+    </button>
+  </ul>
 </nav>

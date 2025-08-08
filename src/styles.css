@@ -1,17 +1,23 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Reset და საბაზისო */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
 }
 
 body {
-  transition: background-color 0.4s ease, color 0.4s ease;
-  background-color: #fff;
-  color: #222;
   font-family: 'Poppins', sans-serif;
+  transition: background-color .35s ease, color .35s ease;
+  /* default LIGHT */
+  background-color: #ffffff;
+  color: #222222;
 }
 
+/* DARK აქტიურდება body.dark-mode-ით */
 body.dark-mode {
-  background-color: #121226;
-  color: #ddd;
+  background-color: #121226; /* ✅ შავი/მუქი ფონით გაშვება */
+  color: #dddddd;
 }
+
+/* სურვილისამებრ: ქუდის/ფუთერის ლინკები გავხადოთ transition-იანი */
+a { transition: color .25s ease; }

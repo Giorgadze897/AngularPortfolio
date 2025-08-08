@@ -10,24 +10,24 @@ export class PortfolioComponent {
   projects = [
     {
       title: 'Fashion Website',
-      description: 'A responsive and modern e-commerce platform built with Angular and Node.js.',
-      image: 'https://www.sliderrevolution.com/wp-content/uploads/2023/06/fashion-website-templates.jpg',
+      description: 'A stylish and fully responsive fashion website built with Angular, offering a smooth, dynamic, and elegant shopping experience. Designed for modern trends, the platform showcases the latest fashion collections with fast performance, intuitive navigation, and a sleek user interface.',
+      image: 'https://graphicsfamily.com/wp-content/uploads/edd/2023/12/Fashion-Web-Banner-Design-scaled.jpg',
       demoLink: 'https://giorgadze897.github.io/fashion-shop/',
       codeLink: 'https://github.com/Giorgadze897/AngularPortfolio'
     },
     {
       title: 'Watch Website',
-      description: 'My personal portfolio showcasing skills, projects, and contact form.',
+      description: 'Experience a sleek and fully responsive watch e-commerce platform built with Angular and Node.js — combining elegant design, seamless performance, and real-time features to deliver a modern shopping experience across all devices.',
       image: 'https://themewagon.com/wp-content/uploads/2021/05/Watch.png',
       demoLink: 'https://giorgadze897.github.io/watch-shop/',
       codeLink: 'https://github.com/Giorgadze897/watch-shop'
     },
-    {
-      title: 'Blog Platform',
-      description: 'A blog site with markdown support, user auth, and CRUD operations.',
-      image: 'https://www.templateshub.net/uploads/1552050005%20open-list-thumb-min.png',
-      demoLink: 'https://your-blog.com',
-      codeLink: 'https://github.com/your-repo/blog'
-    },
+    // {
+    //   title: 'Event Ticket Booking System',
+    //   description: 'A blog site with markdown support, user auth, and CRUD operations.',
+    //   image: 'https://www.templateshub.net/uploads/1552050005%20open-list-thumb-min.png',
+    //   demoLink: 'https://your-blog.com',
+    //   codeLink: 'https://github.com/your-repo/blog'
+    // },
   ];
 }
